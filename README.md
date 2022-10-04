@@ -1,2 +1,5 @@
 # sharelatex-custom
-Custom build of sharelatex with needed addons.
+
+Custom build of sharelatex (*Overleaf*) with:
+- full TeX Live installation
+- MS Fonts
