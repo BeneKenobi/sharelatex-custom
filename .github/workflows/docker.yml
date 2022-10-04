@@ -42,5 +42,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/BeneKenobi/sharelatex-custom:latest
+            ghcr.io/benekenobi/sharelatex-custom:latest
             benekenobi/sharelatex-custom:latest
