@@ -9,7 +9,7 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
     && apt-get install -y --no-install-recommends \
     ttf-mscorefonts-installer \
     python3-pygments \
-    inkscape
+    inkscape \
     && rm -rf /var/lib/apt/lists/*
 
 RUN TEXLIVE_FOLDER=$(find /usr/local/texlive/ -type d -name '20*') \
