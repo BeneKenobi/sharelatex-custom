@@ -1,8 +1,6 @@
-FROM sharelatex/sharelatex
+FROM sharelatex/sharelatex:3.2
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN tlmgr update --all && tlmgr install scheme-full
 
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     && apt-get update \
@@ -15,3 +13,5 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
 RUN TEXLIVE_FOLDER=$(find /usr/local/texlive/ -type d -name '20*') \
     && echo % enable shell-escape by default >> /$TEXLIVE_FOLDER/texmf.cnf \
     && echo shell_escape = t >> /$TEXLIVE_FOLDER/texmf.cnf
+
+RUN tlmgr update --all && tlmgr install scheme-full
