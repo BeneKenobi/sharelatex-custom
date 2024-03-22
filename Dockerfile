@@ -1,4 +1,4 @@
-FROM sharelatex/sharelatex:3.2
+FROM sharelatex/sharelatex:4.2.3
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -14,4 +14,6 @@ RUN TEXLIVE_FOLDER=$(find /usr/local/texlive/ -type d -name '20*') \
     && echo % enable shell-escape by default >> /$TEXLIVE_FOLDER/texmf.cnf \
     && echo shell_escape = t >> /$TEXLIVE_FOLDER/texmf.cnf
 
-RUN tlmgr update --all && tlmgr install scheme-full
+    RUN wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh && \
+    chmod +x update-tlmgr-latest.sh && ./update-tlmgr-latest.sh && \
+    tlmgr install scheme-full --verify-repo=none
