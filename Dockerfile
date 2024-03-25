@@ -2,12 +2,6 @@ FROM sharelatex/sharelatex:4.2.3
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN set -xe \
-    && apt-get update -qqy || apt-get --only-upgrade install ca-certificates -y && apt-get update -qqy \
-    && apt-get  upgrade -y \
-    && apt-get install -y texlive-full xzdec python-pygments aspell aspell-* \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     set -xe \
     && apt-get update -qqy || apt-get --only-upgrade install ca-certificates -y && apt-get update -qqy \
@@ -19,5 +13,7 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
     texlive-full \
     xzdec \
     python-pygments \
-    aspell aspell-* \
+    aspell \
+    aspell-* \
+    texlive-babel-* \
     && rm -rf /var/lib/apt/lists/*
