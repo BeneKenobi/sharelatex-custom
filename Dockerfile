@@ -15,5 +15,5 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
     python-pygments \
     aspell \
     aspell-* \
-    texlive-babel-* \
+    cm-super \
     && rm -rf /var/lib/apt/lists/*
