@@ -25,3 +25,7 @@ RUN tlmgr option repository https://ftp.rrzn.uni-hannover.de/pub/mirror/tex-arch
     && tlmgr install scheme-full
 
 RUN luaotfload-tool -fu
+
+RUN TEXLIVE_FOLDER=$(find /usr/local/texlive/ -type d -name '20*') \
+    && echo % enable shell-escape by default >> /$TEXLIVE_FOLDER/texmf.cnf \
+    && echo shell_escape = t >> /$TEXLIVE_FOLDER/texmf.cnf
