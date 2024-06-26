@@ -2,12 +2,6 @@ FROM docker.io/sharelatex/sharelatex:5.0.6
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN set -xe \
-    && apt-get update -qqy || apt-get --only-upgrade install ca-certificates -y && apt-get update -qqy \
-    && apt-get  upgrade -y \
-    && apt-get install -y texlive-full xzdec python3-pygments aspell aspell-* \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     && apt-get update -qqy || apt-get --only-upgrade install ca-certificates -y && apt-get update -qqy \
     && apt-get upgrade -y \
@@ -16,7 +10,6 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
     python3-pygments \
     inkscape \
     xzdec \
-    python-pygments \
     aspell \
     aspell-* \
     cm-super \
